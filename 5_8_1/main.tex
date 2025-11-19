@@ -1,0 +1,167 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{ esint }
+\usepackage{mathtext}
+\usepackage{siunitx} % Required for alignment
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{afterpage}
+\usepackage[arrowdel]{physics}
+\usepackage{booktabs}
+\setlength{\topmargin}{-0.5in}
+\setlength{\textheight}{9.1in}
+\setlength{\oddsidemargin}{-0.4in}
+\setlength{\evensidemargin}{-0.4in}
+\setlength{\textwidth}{7in}
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{1ex}
+\newcommand{\ndiv}{\hspace{-4pt}\not|\hspace{2pt}}
+\usepackage{floatrow,graphicx,calc}
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{pgfplots}
+\usepackage{caption}
+\pgfplotsset{compat=1.16}
+\graphicspath{ {./images/} }
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{defffis}{ — }
+\captionsetup{justification=centering,labelsep=defffis}
+\usepackage{caption} \captionsetup[table]{labelsep=endash,justification=justified,singlelinecheck=false,font=normalsize}
+\usepackage{amsfonts,mathtools}
+
+\title{Лабораторная работа № 5.8.1\\ Тепловое излучение}
+\author{Тенгиз Пазов}
+\date{Ноябрь 2025}
+
+\begin{document}
+\maketitle
+\newpage
+\section{Теоретическая справка}
+
+По результатам измерений мощности излучения вольфрамовой нити можно судить о справедливости закона Стефана-Больцмана. Если бы нить излучала как АЧТ, то баланс потребляемой и излучаемой энергии определялся бы соотношением 
+\begin{equation}
+    W = \sigma S (T^4 - T_0^4),
+\end{equation}
+где $W$ - потребляемая нитью электрическая мощность, $S$ - площадь излучающей поверхности нити, $T$ - температура нити, $T_0$ - температура окружающей среды. Однако вольфрамовая нить излучает как серое тело, и излучение её ослаблено по сравнению с АЧТ в $\varepsilon_T$ раз для любой волны при данной температуре тела Т. Тогда предположив, что нить излучает как серое тело и с учётом того, что $T_0 \ll T$, выражение (1) можно переписать в виде
+\begin{equation}
+    W = \varepsilon_T S \sigma T^4
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{pic1.png}
+\end{figure}
+\newpage
+\section{Ход работы}
+\subsection*{Проверка работы оптического пирометра}
+Измерим температуру АЧТ при помощи оптического пирометра, а также с помощью термопары хромель-алюмель. Получилось:
+\[T_\text{опт. пир.} = 1013^\circ C\]
+\[T_\text{терм} = 1031^\circ C\]
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.65]{pic2.png}
+\end{figure}
+
+\subsection*{Измерение яркостной температуры накаленных тел}
+Нагрев трубку и кольца до высокой температуры, получаем
+\[T_\text{трубки} = 807^\circ C\]
+\subsection*{Проверка закона Стефана-Больцмана}
+Построим график зависимости $\ln W = f(\ln T_\text{терм})$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{graph.png}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        U, В & $\sigma_U$, В & I, мA & $\sigma_I$, мA & W, Вт & $\sigma_W$, Вт & $T_\text{ярк}$, К & $T_\text{терм}$, К & $\sigma_{T_\text{терм}}$, K \\
+        \hline 
+        2,66 & 0,04 & 618  & 4 & 1,644 & 0,03 & 1010 & 1065 & 5 \\
+        \hline
+        3,27 & 0,04 & 703  & 4 & 2,299 & 0,03 & 1180 & 1247 & 5 \\
+        \hline
+        5,17 & 0,04 & 875  & 4 & 4,524 & 0,03 & 1320 & 1392 & 5 \\
+        \hline
+        5,53 & 0,04 & 903  & 4 & 4,994 & 0,03 & 1500 & 1585 & 5 \\
+        \hline
+        6,01 & 0,04 & 945  & 4 & 5,679 & 0,03 & 1578 & 1648 & 5 \\
+        \hline
+        7,12 & 0,04 & 985  & 4 & 7,013 & 0,03 & 1682 & 1743 & 5 \\
+        \hline
+        7,02 & 0,04 & 1018  & 4 & 7,146 & 0,03 & 1748 & 1805 & 5 \\
+        \hline
+        7,54 & 0,04 & 1056  & 4 & 7,962 & 0,03 & 1795 & 1856 & 5 \\
+        \hline
+        8,23 & 0,04 & 1107  & 4 & 9,111 & 0,03 & 1921 & 1986 & 5 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{graph_5_8_1.png}
+\end{figure}
+
+Из графика: $n = 2,46 \pm 0,01$.
+Найдём значение постоянной Стефана-Больцмана $\sigma$ для измерений при $T > 1700$ К. $S = 0,36 \text{см}^2$.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $T_{\text{терм}}$, K & $\sigma$, $10^{-12}$ $\frac{\text{Вт}}{\text{см}^2\cdot\text{К}^4}$ & $\sigma_\sigma$, $10^{-12}$ $\frac{\text{Вт}}{\text{см}^2\cdot\text{К}^4}$ \\
+        \hline
+        1743 & 2,11 & 0,11 \\
+        \hline
+        1805 & 1,87 & 0,10 \\
+        \hline
+        1856 & 1,86 & 0,10 \\
+        \hline
+        1986 & 1,63 & 0,10 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Среднее значение: $\sigma = 1,87 \pm 0,10 \cdot 10^{-12}$ $\frac{\text{Вт}}{\text{см}^2\cdot\text{К}^4}$
+
+Табличное значение: $\sigma_{\text{табл}} = 5,67 \cdot 10^{-12}$ $\frac{\text{Вт}}{\text{см}^2\cdot\text{К}^4}$
+
+Отношение: $\frac{\sigma_{\text{эксп}}}{\sigma_{\text{табл}}} = \frac{1,87}{5,67} \approx 0,33$
+
+Оценка эмиссионной способности вольфрама: $\varepsilon \approx 0,33$
+Получилось $\sigma = 3,74 \pm 0,03 \cdot 10^{-12}$ $\frac{\text{Вт}}{\text{см}^2 \cdot K^4}$.
+Тогда $h = \sqrt[3]{\frac{2 \pi^5 k_\text{Б}^4}{15c^2 \sigma}} = 7,60 \pm 0,02 \cdot 10^{-34}$ Дж $\cdot$ с 
+\subsection*{Измерение яркостной температуры неоновой лампы}
+
+При измерении оптическим пирометром яркостная температура неоновой лампы составила $T_\text{ярк} = 830^\circ C$. В то же время, термодинамическая температура лампы соответствует комнатной (что подтверждается пальцем). 
+
+Такое значительное расхождение температур объясняется различной природой излучения:
+\begin{itemize}
+    \item Тепловые источники (АЧТ, вольфрамовая нить) излучают за счёт нагрева
+    \item Неоновая лампа излучает вследствие электрического разряда в газе, при котором происходит возбуждение атомов неона и последующие квантовые переходы между электронными уровнями
+\end{itemize}
+
+Таким образом, пирометр, откалиброванный на тепловые источники, даёт некорректные показания для источников с нетепловым механизмом свечения.
+\section{Вывод}
+В ходе работы было исследовано тепловое излучение, проверен закон Стефана-Больцмана(в итоге не получилось соответствие данному закону, т.к. $n \approx 2,5$). Также был найден коэффициент Стефана-Больцмана $\sigma = 1,87 \pm 0,10 \cdot 10^{-12}$ $\frac{\text{Вт}}{\text{см}^2 \cdot K^4}$(Табличное же значение достаточно сильно отличается: $\sigma = 5,76 \cdot 10^{-12}$ $\frac{\text{Вт}}{\text{см}^2 \cdot K^4}$). 
+
+Была найдена постоянная Планка $h = 7,60 \pm 0,02 \cdot 10^{-34}$ Дж $\cdot$ с.
+
+
+\end{document}
